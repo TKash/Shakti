@@ -629,6 +629,82 @@ $(".photo_img").each(function (index) {
   });
 });
 
+
+//Journey scroll animation - Desktop -
+let mm = gsap.matchMedia();
+let picture_block = $(".jr_picture");
+
+mm.add("(min-width: 992px)", () => {
+  gsap.to(picture_block, {
+    xPercent: -120,
+    scrollTrigger: {
+      start: "15% top",
+      end: "25% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  gsap.to("div.jr-content-1 > *", {
+    opacity: 0,
+    scrollTrigger: {
+      start: "25% top",
+      end: "26% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+
+  //slide 2
+  gsap.from("div.jr-content-2 > *", {
+    y: 20,
+    opacity: 0,
+    stagger: { each: 0.1 },
+    filter: "blur(10px)",
+    scrollTrigger: {
+      start: "28% top",
+      end: "35% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+
+  //slide 3
+  gsap.to(".jr-content-2", {
+    opacity: 0,
+    y: -20,
+    filter: "blur(10px)",
+    scrollTrigger: {
+      start: "55% top",
+      end: "55.5% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  gsap.to(".pic_movement_block", {
+    xPercent: 120,
+    scrollTrigger: {
+      start: "50% top",
+      end: "60% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  gsap.from("div.jr-content-3 > *", {
+    y: 20,
+    opacity: 0,
+    filter: "blur(10px)",
+    stagger: { each: 0.1 },
+    scrollTrigger: {
+      start: "58% top",
+      end: "65% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+});
+
+
+
 //Count up animation
 jQuery(document).ready(function ($) {
   $(".counterup").counterUp({
