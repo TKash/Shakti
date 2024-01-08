@@ -633,6 +633,10 @@ $(".photo_img").each(function (index) {
 //Journey scroll animation - Desktop -
 let mm = gsap.matchMedia();
 let picture_block = $(".jr_picture");
+let picture1 = $(".journey_pic1");
+let picture2 = $(".journey_pic2");
+let picture3 = $(".journey_pic3");
+
 
 mm.add("(min-width: 992px)", () => {
   gsap.to(picture_block, {
@@ -644,6 +648,25 @@ mm.add("(min-width: 992px)", () => {
       scrub: 1.5
     }
   });
+  gsap.to(picture_block, {
+    xPercent: -120,
+    scrollTrigger: {
+      start: "15% top",
+      end: "25% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  gsap.from(picture2, {
+    opacity: 0,
+    scrollTrigger: {
+      start: "15% top",
+      end: "25% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  
   gsap.to("div.jr-content-1 > *", {
     opacity: 0,
     scrollTrigger: {
@@ -689,6 +712,16 @@ mm.add("(min-width: 992px)", () => {
       scrub: 1.5
     }
   });
+  gsap.from(picture3, {
+    opacity: 0,
+    scrollTrigger: {
+      start: "50% top",
+      end: "60% top",
+      trigger: ".journey-section",
+      scrub: 1.5
+    }
+  });
+  
   gsap.from("div.jr-content-3 > *", {
     y: 20,
     opacity: 0,
